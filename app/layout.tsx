@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, VT323 } from "next/font/google";
 import "./globals.css";
 
@@ -19,6 +19,13 @@ const vt323 = VT323({
 export const metadata: Metadata = {
   title: "happy-sad",
   description: "A tiny pixel mood wheel.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#ede4cb",
 };
 
 export default function RootLayout({

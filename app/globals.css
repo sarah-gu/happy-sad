@@ -40,6 +40,7 @@ button {
   position: relative;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   background-image: radial-gradient(rgba(26, 29, 31, 0.06) 1px, transparent 1px);
   background-size: 6px 6px;
   background-position: 0 0;
@@ -167,8 +168,8 @@ button {
 }
 .wheel-wrap {
   position: relative;
-  width: min(64vh, 460px);
-  height: min(64vh, 460px);
+  width: min(64vh, 88vw, 460px);
+  height: min(64vh, 88vw, 460px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -428,5 +429,152 @@ button {
   }
   100% {
     transform: translate3d(var(--dx, 0), 110vh, 0);
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 640px) {
+  .screen {
+    padding: 16px 16px 80px;
+  }
+
+  .title {
+    font-size: clamp(24px, 9vw, 40px);
+    margin: 0 0 clamp(24px, 5vh, 40px);
+  }
+  .title .t-happy,
+  .title .t-sad {
+    text-shadow: 2px 2px 0 var(--pink-soft);
+  }
+  .title .t-sad {
+    text-shadow: 2px 2px 0 var(--blue-soft);
+  }
+
+  .choice-row {
+    gap: 20px 28px;
+  }
+  .choice {
+    width: clamp(120px, 38vw, 170px);
+    border-width: 3px;
+    box-shadow: 4px 4px 0 0 var(--ink);
+  }
+  .choice:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 0 var(--ink);
+  }
+  .choice .label {
+    bottom: -26px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .back {
+    top: 14px;
+    left: 14px;
+    font-size: 10px;
+    padding: 6px 10px;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .wheel-screen .heading {
+    font-size: 12px;
+    margin: 36px 0 12px;
+  }
+  .wheel-hub {
+    width: 60px;
+    height: 60px;
+    font-size: 10px;
+    border-width: 3px;
+  }
+  .wheel-pointer {
+    width: 24px;
+    height: 30px;
+    top: -10px;
+  }
+
+  .spin-btn {
+    margin-top: 18px;
+    font-size: 11px;
+    padding: 12px 22px;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .spin-btn:active:not(:disabled) {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  .reveal-card {
+    padding: 26px 20px;
+    border-width: 3px;
+    box-shadow: 5px 5px 0 var(--ink);
+    width: 94%;
+  }
+  .reveal-card .badge {
+    font-size: 9px;
+    padding: 4px 10px;
+    border-width: 2px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .reveal-card .face-mini {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 14px;
+  }
+  .reveal-card .quote {
+    font-size: 20px;
+  }
+  .reveal-actions {
+    gap: 10px;
+  }
+
+  .pet-layer {
+    height: 56px;
+  }
+  .pet {
+    width: 44px;
+    height: 44px;
+    bottom: 12px;
+  }
+  @keyframes pet-walk {
+    0% {
+      transform: translateX(-10px) scaleX(1);
+    }
+    48% {
+      transform: translateX(calc(100vw - 44px)) scaleX(1);
+    }
+    50% {
+      transform: translateX(calc(100vw - 44px)) scaleX(-1);
+    }
+    98% {
+      transform: translateX(-10px) scaleX(-1);
+    }
+    100% {
+      transform: translateX(-10px) scaleX(1);
+    }
+  }
+}
+
+@media (max-width: 640px) and (orientation: landscape) {
+  .title {
+    margin: 0 0 16px;
+    font-size: clamp(20px, 5vw, 28px);
+  }
+  .screen {
+    padding: 12px 16px 60px;
+  }
+  .wheel-wrap {
+    width: min(56vh, 56vw, 360px);
+    height: min(56vh, 56vw, 360px);
+  }
+  .wheel-screen .heading {
+    margin: 28px 0 8px;
+  }
+  .spin-btn {
+    margin-top: 12px;
+  }
+  .pet-layer {
+    height: 44px;
   }
 }
