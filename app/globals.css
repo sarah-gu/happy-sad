@@ -352,25 +352,7 @@ button {
   width: 56px;
   height: 56px;
   image-rendering: pixelated;
-  animation: pet-walk 26s linear infinite;
   will-change: transform;
-}
-@keyframes pet-walk {
-  0% {
-    transform: translateX(-12px) scaleX(1);
-  }
-  48% {
-    transform: translateX(calc(100vw - 56px)) scaleX(1);
-  }
-  50% {
-    transform: translateX(calc(100vw - 56px)) scaleX(-1);
-  }
-  98% {
-    transform: translateX(-12px) scaleX(-1);
-  }
-  100% {
-    transform: translateX(-12px) scaleX(1);
-  }
 }
 .pet-bob {
   width: 100%;
@@ -390,6 +372,37 @@ button {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+/* ---------- CONFETTI BUTTON ---------- */
+.confetti-btn {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-press-start-2p), monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  background: var(--yellow-soft);
+  border: 4px solid var(--ink);
+  padding: 10px 14px;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.08s steps(2), background 0.12s;
+  z-index: 20;
+}
+.confetti-btn:hover {
+  background: var(--yellow);
+}
+.confetti-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+.confetti-btn span[aria-hidden="true"] {
+  font-size: 14px;
+  line-height: 1;
 }
 
 /* ---------- CONFETTI ---------- */
@@ -537,22 +550,22 @@ button {
     height: 44px;
     bottom: 12px;
   }
-  @keyframes pet-walk {
-    0% {
-      transform: translateX(-10px) scaleX(1);
-    }
-    48% {
-      transform: translateX(calc(100vw - 44px)) scaleX(1);
-    }
-    50% {
-      transform: translateX(calc(100vw - 44px)) scaleX(-1);
-    }
-    98% {
-      transform: translateX(-10px) scaleX(-1);
-    }
-    100% {
-      transform: translateX(-10px) scaleX(1);
-    }
+
+  .confetti-btn {
+    right: 12px;
+    bottom: 68px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 8px 10px;
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .confetti-btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+  .confetti-btn span[aria-hidden="true"] {
+    font-size: 12px;
   }
 }
 

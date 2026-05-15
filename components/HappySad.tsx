@@ -83,6 +83,15 @@ export default function HappySad() {
         <div className="pet-ground" />
         <Pet />
       </div>
+      <button
+        type="button"
+        className="confetti-btn"
+        onClick={() => setConfettiKey((k) => k + 1)}
+        aria-label="Throw confetti"
+      >
+        <span aria-hidden="true">★</span>
+        <span className="confetti-btn-label">CONFETTI</span>
+      </button>
       <Confetti run={confettiKey} />
     </div>
   );

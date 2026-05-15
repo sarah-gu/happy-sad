@@ -6,6 +6,7 @@ const COLOR_CLASSES = ["c-pink", "c-blue", "c-yellow", "c-green", "c-peach", ""]
 
 type Piece = {
   id: string;
+  run: number;
   left: number;
   dx: number;
   dur: number;
@@ -24,6 +25,7 @@ export default function Confetti({ run }: { run: number }) {
     for (let i = 0; i < N; i++) {
       arr.push({
         id: `${run}-${i}`,
+        run,
         left: Math.random() * 100,
         dx: (Math.random() - 0.5) * 180,
         dur: 1800 + Math.random() * 1600,
@@ -32,8 +34,10 @@ export default function Confetti({ run }: { run: number }) {
         color: COLOR_CLASSES[Math.floor(Math.random() * COLOR_CLASSES.length)],
       });
     }
-    setPieces(arr);
-    const t = setTimeout(() => setPieces([]), 4500);
+    setPieces((prev) => [...prev, ...arr]);
+    const t = setTimeout(() => {
+      setPieces((prev) => prev.filter((p) => p.run !== run));
+    }, 4500);
     return () => clearTimeout(t);
   }, [run]);
 
